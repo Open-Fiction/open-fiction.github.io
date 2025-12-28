@@ -1,0 +1,63 @@
+body {
+    --box-padding: 3em;
+    --box-background: #fff;
+    --box-border-color: #bebab5;
+    --box-border-side-color: #d6d2cb;
+    --box-backdrop-color: #000;
+    --box-footer-border: #ddd;
+    --box-footer-padding: 1.5em;
+    --box-footer-background: #eee;
+    --box-radius: 7px;
+    --grid-spacing: 0.65em;
+}
+
+.columns {
+    --side-weight: 23.7rem;
+    display: flex;
+    gap: 1.2em;
+    padding: var(--grid-spacing);
+}
+
+.columns.front-page {
+    --side-weight: 19.625rem;
+}
+
+.columns .columns {
+    --side-weight: auto;
+    --grid-spacing: 1em;
+    gap: var(--grid-spacing);
+    padding: 0;
+}
+.columns > .column {
+    flex-grow: 1;
+}
+
+.columns > .column.right {
+    max-width: var(--side-weight);
+    min-width: 0;
+}
+
+.columns > .column.left {
+    max-width: calc(100% - var(--side-weight));
+}
+
+.columns .columns .column {
+    max-width: 50%;
+    min-width: 0;
+}
+
+.single-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single-column > * {
+    width: 100%;
+    max-width: 48rem;
+}
+
+.columns.equal-columns {
+    --side-weight: 50%;
+}
+

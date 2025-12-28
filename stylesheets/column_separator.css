@@ -1,0 +1,90 @@
+.column-separator {
+    --gradient-stop: 80px;
+    --gradient-target: bottom;
+    --gradient-width: 1px;
+    --gradient-height: 100%;
+
+    position: relative;
+    height: auto;
+    width: 0;
+    pointer-events: none;
+}
+.column-separator::backdrop {
+    background: black;
+}
+
+.column-separator::before,
+.column-separator::after {
+    position: absolute;
+    content: '';
+    width: var(--gradient-width);
+    height: var(--gradient-height);
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+        to var(--gradient-target),
+        var(--start-color) 0%,
+        var(--end-color) var(--gradient-stop),
+        var(--end-color) calc(100% - var(--gradient-stop)),
+        var(--start-color) 100%
+    );
+}
+
+.column-separator::before {
+    --start-color: rgba(255, 255, 255, 0);
+    --end-color: rgba(255, 255, 255, 0.75);
+}
+
+.column-separator::after {
+    left: 1px;
+    --start-color: transparent;
+    --end-color: rgba(0, 0, 0, 0.25);
+}
+.column-separator span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: var(--gradient-clip-size);
+    overflow: hidden;
+
+    --gradient-clip-size: 40px;
+    --gradient-depth: 200px;
+}
+.column-separator span::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: var(--gradient-depth);
+    left: calc(var(--gradient-depth) * -1);
+    border-radius: 100px;
+    box-shadow: 0 0 30px #00000020;
+}
+
+.column-separator.horizontal {
+    height: 1px;
+    width: auto;
+
+    --gradient-target: right;
+    --gradient-width: 100%;
+    --gradient-height: 1px;
+}
+.column-separator.horizontal::after {
+    left: 0;
+    top: -1px;
+}
+
+.column-separator.horizontal span {
+    width: auto;
+    top: 0;
+    height: var(--gradient-clip-size);
+}
+.column-separator.horizontal span::after {
+    left: 0;
+    width: 100%;
+    height: var(--gradient-depth);
+    top: calc(var(--gradient-depth) * -1);
+}

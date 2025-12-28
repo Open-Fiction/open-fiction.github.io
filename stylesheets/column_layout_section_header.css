@@ -1,0 +1,50 @@
+section .section-header {
+    display: flex;
+    position: relative;
+    padding: var(--header-spacing);
+    border-radius: var(--header-rounding);
+    background: #5d666f;
+    border: 1px solid #0001;
+    box-shadow: 0 1px 0 #fff3 inset;
+    color: #fff;
+    text-shadow: -1px -1px #0003;
+    font-weight: var(--least-bold);
+    line-height: 1.8em;
+    gap: calc(var(--header-spacing) * 2);
+}
+
+section .section-header .icon,
+section .section-header .count {
+    display: block;
+    background: #0003;
+    color: #fff;
+    font-weight: var(--less-bold);
+    border: 1px solid transparent;
+    border-right-color: #0001;
+    box-shadow: 1px 1px 0 #fff2 inset;
+    border-radius: 0 var(--header-rounding) var(--header-rounding) 0;
+    padding: inherit;
+    margin: calc(var(--header-spacing) * -1 - 1px);
+}
+section .section-header .icon {
+    border-radius: var(--header-rounding) 0 0 var(--header-rounding);
+}
+section .section-header .icon i {
+    font-size: 1.4em !important;
+    vertical-align: middle;
+}
+section .section-header .icon.end {
+    font-size: 1em !important;
+    border-radius: 0 var(--header-rounding) var(--header-rounding) 0;
+    margin-left: auto;
+    border-right-color: transparent;
+    border-left-color: #0001;
+}
+section .section-header .count {
+    margin-left: auto;
+}
+
+section .section-header a {
+    color: inherit;
+    text-decoration: none;
+}
